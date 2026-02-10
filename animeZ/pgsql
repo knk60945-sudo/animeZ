@@ -1,0 +1,5 @@
+animeZ/
+ ├─ index.html          ← الصفحة الرئيسية
+ ├─ anime-details.html  ← صفحة تفاصيل الأنمي
+ ├─ style.css           ← التنسيق (Modern Design)
+ └─ script.js           ← التفاعلات والبيانات

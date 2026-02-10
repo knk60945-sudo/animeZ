@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Details - animeZ</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for details page not covered in global CSS */
+        .status-badge {
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="index.html" style="color: inherit; text-decoration: none;">animeZ</a></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#" class="active">Details</a>
+            <a href="#">Popular</a>
+            <a href="#">Community</a>
+            <a href="#" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="anime-details" class="details-container">
+            <!-- Populated by JS -->
+            <div class="loading">Loading details...</div>
+        </div>
+
+        <section id="related-anime">
+            <h2>You Might Also Like</h2>
+            <div class="anime-grid" id="related-list">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple router logic for details page
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const animeTitle = urlParams.get('title') || 'One Piece'; // Default fallback
+
+            // Find anime data (mock)
+            const anime = animeData.find(a => a.title === animeTitle) || animeData[0];
+
+            loadAnimeDetails(anime);
+            loadRelatedAnime();
+        });
+
+        function loadAnimeDetails(anime) {
+            const container = document.getElementById('anime-details');
+            // Mock extended data
+            const extendedData = {
+                description: "Monkey. D. Luffy refuses to let anyone or anything stand in the way of his quest to become the king of all pirates. With a course charted for the treacherous waters of the Grand Line and beyond, this is one captain who'll never drop anchor until he's claimed the greatest treasure on Earth: the Legendary One Piece!",
+                rating: "4.9/5",
+                status: "Ongoing",
+                studio: "Toei Animation",
+                year: "1999"
+            };
+
+            container.innerHTML = `
+      <div class="details-sidebar">
+        <img src="${anime.image}" alt="${anime.title}">
+        <div class="action-buttons">
+          <button class="btn btn-primary">Watch Now</button>
+          <button class="btn btn-secondary">+ Add to Watchlist</button>
+        </div>
+      </div>
+      <div class="details-content">
+        <h1>${anime.title}</h1>
+        <div class="meta-tags">
+          <span class="rating">★ ${extendedData.rating}</span>
+          <span>${extendedData.year}</span>
+          <span>${extendedData.studio}</span>
+          <span class="status-badge">${extendedData.status}</span>
+        </div>
+        <p class="description">${extendedData.description}</p>
+        
+        <div class="video-container">
+           <div class="video-placeholder">
+             <div class="play-icon">▶</div>
+             <h3>Select an Episode to Play</h3>
+             <p>Server: VidStream (Default)</p>
+           </div>
+        </div>
+
+        <div class="episodes-section">
+          <h3>Episodes</h3>
+          <div class="episode-grid">
+            ${Array.from({ length: 12 }, (_, i) => `<a href="#" class="episode-btn">Ep ${i + 1}</a>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+        }
+
+        function loadRelatedAnime() {
+            const grid = document.getElementById('related-list');
+            // Using main animeData from script.js
+            animeData.slice(1, 5).forEach(anime => {
+                grid.appendChild(createAnimeCard(anime));
+            });
+        }
+    </script>
+</body>
+
+</html>

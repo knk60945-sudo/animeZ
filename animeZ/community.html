@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - animeZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .forum-post {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .forum-post:hover {
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        .post-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .tag {
+            background: rgba(139, 0, 255, 0.1);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="index.html" style="color: inherit; text-decoration: none;">animeZ</a></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="community.html" class="active">Community</a>
+            <a href="news.html">News</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="forums-hero" style="text-align: center; margin-bottom: 3rem;">
+            <h2>Z-Community Forums 💬</h2>
+            <p>Join the discussion, share theories, and connect with fans.</p>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem;">
+                <button class="btn btn-primary">Start Discussion</button>
+                <button class="btn btn-secondary">Guidelines</button>
+            </div>
+        </section>
+
+        <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+            <!-- Sidebar -->
+            <aside>
+                <div
+                    style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; position: sticky; top: 100px;">
+                    <h3 style="margin-bottom: 1rem;">Topics</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: var(--primary-color); text-decoration: none;">General Discussion</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #bbb; text-decoration: none;">Episode Discussions</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #bbb; text-decoration: none;">Theories & Predictions</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#" style="color: #bbb; text-decoration: none;">Manga
+                                Corner</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="color: #bbb; text-decoration: none;">Support</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Forum List -->
+            <div class="forum-feed">
+                <div class="forum-post">
+                    <div class="post-header">
+                        <span>Posted by @LuffyFan99 • 2h ago</span>
+                        <span class="tag">One Piece</span>
+                    </div>
+                    <div class="post-title">Theory: What if the One Piece is actually...</div>
+                    <p style="color: #ddd;">I've been thinking about the latest chapter and I have a crazy theory about
+                        Joyboy...</p>
+                    <div class="post-actions">
+                        <span>❤️ 245 Likes</span>
+                        <span>💬 89 Comments</span>
+                    </div>
+                </div>
+
+                <div class="forum-post">
+                    <div class="post-header">
+                        <span>Posted by @DemonSlayerX • 5h ago</span>
+                        <span class="tag">Demon Slayer</span>
+                    </div>
+                    <div class="post-title">Hashira Training Arc Animation Quality</div>
+                    <p style="color: #ddd;">Can we appreciate how smooth the latest episode looked? Ufotable never
+                        misses!</p>
+                    <div class="post-actions">
+                        <span>❤️ 1.2k Likes</span>
+                        <span>💬 340 Comments</span>
+                    </div>
+                </div>
+
+                <div class="forum-post">
+                    <div class="post-header">
+                        <span>Posted by @Admin • 1d ago</span>
+                        <span class="tag">Announcements</span>
+                    </div>
+                    <div class="post-title">Welcome to the new animeZ Community!</div>
+                    <p style="color: #ddd;">We are excited to launch our new forums. Please read the rules before
+                        posting.</p>
+                    <div class="post-actions">
+                        <span>❤️ 5k Likes</span>
+                        <span>💬 120 Comments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

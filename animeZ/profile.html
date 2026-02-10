@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - animeZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="index.html" style="color: inherit; text-decoration: none;">animeZ</a></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="community.html">Community</a>
+            <a href="news.html">News</a>
+            <a href="#" class="active">Profile</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="profile-header">
+            <div class="avatar">U</div>
+            <div>
+                <h1>User123</h1>
+                <p style="color: #bbb;">Premium Member • Joined Feb 2026</p>
+                <div style="margin-top: 10px;">
+                    <span class="episode-badge">Level 5</span>
+                    <span class="episode-badge" style="background:#ffd700; color:#000;">VIP</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">142</div>
+                <div class="stat-label">Episodes Watched</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Completed Anime</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">45h</div>
+                <div class="stat-label">Total Watch Time</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Achievements</div>
+            </div>
+        </div>
+
+        <section>
+            <div class="section-title">
+                <h2>My Watchlist 🔖</h2>
+                <button class="btn btn-secondary" style="font-size: 0.8rem;">Edit List</button>
+            </div>
+            <div class="anime-grid" id="watchlist-grid">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <section>
+            <h2>Achievements 🏆</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div class="stat-card"
+                    style="flex: 1; min-width: 200px; display: flex; align-items: center; gap: 1rem; text-align: left;">
+                    <div style="font-size: 2rem;">🎬</div>
+                    <div>
+                        <h3>First Watch</h3>
+                        <p style="font-size: 0.8rem; color: #888;">Watched your first episode</p>
+                    </div>
+                </div>
+                <div class="stat-card"
+                    style="flex: 1; min-width: 200px; display: flex; align-items: center; gap: 1rem; text-align: left;">
+                    <div style="font-size: 2rem;">🔥</div>
+                    <div>
+                        <h3>Binge Watcher</h3>
+                        <p style="font-size: 0.8rem; color: #888;">Watched 10 episodes in a day</p>
+                    </div>
+                </div>
+                <div class="stat-card"
+                    style="flex: 1; min-width: 200px; display: flex; align-items: center; gap: 1rem; text-align: left;">
+                    <div style="font-size: 2rem;">📅</div>
+                    <div>
+                        <h3>Seasonal</h3>
+                        <p style="font-size: 0.8rem; color: #888;">Followed a seasonal anime</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Mock Watchlist Data
+        const watchlistData = [
+            {
+                title: "One Piece",
+                image: "https://m.media-amazon.com/images/M/MV5BODcwNWE3OTMtMDc3MS00NDFjLWE1OTAtNDU3NjgxODMxY2UyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg",
+                episode: "Ep 1090",
+                type: "TV"
+            },
+            {
+                title: "Solo Leveling",
+                image: "https://m.media-amazon.com/images/M/MV5BMjEwNDM2NzYtZDY2MS00N2Q3LWE1ZTYtY2E4YTAzM2E5ZDM4XkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_FMjpg_UX1000_.jpg",
+                episode: "Ep 6",
+                type: "TV"
+            }
+        ];
+
+        const watchlistGrid = document.getElementById('watchlist-grid');
+        if (watchlistGrid) {
+            watchlistData.forEach(anime => {
+                watchlistGrid.appendChild(createAnimeCard(anime));
+            });
+        }
+    </script>
+</body>
+
+</html>
