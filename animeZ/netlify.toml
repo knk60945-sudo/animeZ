@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false 
+  # Note: The above rule is for SPAs. Since this is a static multi-page site, 
+  # we might not want this for everything, but it prevents 404s by falling back to index. 
+  # However, for a multi-page site, better to let it find the files.
+  # Let's simple use a custom 404 page if not found.
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

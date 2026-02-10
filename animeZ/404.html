@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | animeZ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error-container {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-shadow: 0 0 20px rgba(139, 0, 255, 0.5);
+        }
+
+        .error-msg {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #bbb;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html" style="color: inherit; text-decoration: none;">animeZ</a></h1>
+    </header>
+
+    <main class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-msg">Oops! The anime you are looking for is in another castle.</div>
+        <a href="index.html" class="btn btn-primary">Return Home</a>
+    </main>
+</body>
+
+</html>

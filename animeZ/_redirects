@@ -1,0 +1,12 @@
+# Netlify Redirects
+# Basic redirect to handle clean URLs if needed (optional for pure static, but good for safety)
+
+# 1. Handle Custom 404
+/*  /404.html  404
+
+# 2. Redirects for commonly guessed paths
+/login   /login.html
+/signup  /login.html
+/news    /news.html
+/community /community.html
+/profile /profile.html
