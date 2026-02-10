@@ -97,16 +97,27 @@ function init() {
 }
 
 // Check for user login status
+// Check for user login status
 function checkAuthStatus() {
     const loginBtn = document.querySelector('.login-btn');
-    // Mock check - in real app, check for valid token
-    const isLoggedIn = localStorage.getItem('animeZ_user');
+    // Mock check - in real app, check for valid token/role
+    const user = localStorage.getItem('animeZ_user');
 
-    if (isLoggedIn && loginBtn) {
-        loginBtn.textContent = 'Profile';
-        loginBtn.href = 'profile.html';
+    if (user && loginBtn) {
+        if (user === 'Admin') {
+            loginBtn.textContent = 'Admin Panel';
+            loginBtn.href = 'admin.html';
+            loginBtn.style.color = '#ff0055'; // Distinct color for admin
+            loginBtn.style.borderColor = '#ff0055';
+        } else {
+            loginBtn.textContent = 'Profile';
+            loginBtn.href = 'profile.html';
+            loginBtn.style.borderColor = 'var(--primary-color)';
+        }
+
         loginBtn.style.background = 'transparent';
-        loginBtn.style.border = '1px solid var(--primary-color)';
+        loginBtn.style.borderWidth = '1px';
+        loginBtn.style.borderStyle = 'solid';
     }
 }
 

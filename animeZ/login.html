@@ -75,6 +75,13 @@
                     <span>G</span> Sign up with Google
                 </button>
             </form>
+
+            <div
+                style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                <p style="font-size: 0.8rem; color: #666; margin-bottom: 0.5rem;">For Testing:</p>
+                <button onclick="adminLogin()" class="btn btn-secondary" style="font-size: 0.8rem; width: 100%;">Demo
+                    Admin Login</button>
+            </div>
         </div>
     </main>
 
@@ -99,11 +106,20 @@
         }
 
         // Mock Login/Signup Logic
+        // Mock Login/Signup Logic
         document.getElementById('login-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            localStorage.setItem('animeZ_user', 'User123');
-            alert('Logged in successfully! Redirecting to profile...');
-            window.location.href = 'profile.html';
+            const email = document.getElementById('login-email').value;
+
+            if (email.toLowerCase() === 'admin@animez.com') {
+                localStorage.setItem('animeZ_user', 'Admin');
+                alert('Logged in as Admin! Redirecting to Dashboard...');
+                window.location.href = 'admin.html';
+            } else {
+                localStorage.setItem('animeZ_user', 'User123');
+                alert('Logged in successfully! Redirecting to profile...');
+                window.location.href = 'profile.html';
+            }
         });
 
         document.getElementById('signup-form').addEventListener('submit', (e) => {
@@ -112,6 +128,14 @@
             alert('Account created! Redirecting to profile...');
             window.location.href = 'profile.html';
         });
+
+        // Secret Admin Login (for demo purposes)
+        // In a real app, this would be server-side validated
+        window.adminLogin = function () {
+            localStorage.setItem('animeZ_user', 'Admin');
+            alert('Logged in as Admin! Redirecting to Dashboard...');
+            window.location.href = 'admin.html';
+        }
     </script>
 </body>
 
