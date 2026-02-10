@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - animeZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-img {
+            height: 200px;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .read-more {
+            margin-top: auto;
+            color: #fff;
+            text-decoration: underline;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="index.html"><img src="logo.png" alt="animeZ" class="logo-img"></a></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="community.html">Community</a>
+            <a href="news.html" class="active">News</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Latest News 📰</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMjdiMjFlYjItYTIwMy00YjkzLTliMWMtZGRjNDNiYmY1NzIzXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg"
+                            alt="Frieren">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">Feb 10, 2026</div>
+                        <h3 class="news-title">Frieren: Beyond Journey's End Season 2 Announced</h3>
+                        <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 1rem;">The journey continues! Madhouse
+                            confirms the second season is in production...</p>
+                        <a href="#" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNGY4MTg3NzgtMmFkZi00NTg5LWExMmEtMWI3YzI1ODdmMWQ1XkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_.jpg"
+                            alt="JJK">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">Feb 08, 2026</div>
+                        <h3 class="news-title">Jujutsu Kaisen Creator Comments on Ending</h3>
+                        <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 1rem;">Gege Akutami shares thoughts on
+                            the manga's conclusion and anime adaptation...</p>
+                        <a href="#" class="read-more">Read Article</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-img">
+                        <img src="https://m.media-amazon.com/images/M/MV5BODcwNWE3OTMtMDc3MS00NDFjLWE1OTAtNDU3NjgxODMxY2UyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg"
+                            alt="One Piece">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">Feb 05, 2026</div>
+                        <h3 class="news-title">One Piece Remake: Everything We Know So Far</h3>
+                        <p style="color: #bbb; font-size: 0.95rem; margin-bottom: 1rem;">Wit Studio's adaptation of the
+                            East Blue Saga is looking promising...</p>
+                        <a href="#" class="read-more">Read Article</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animeZ - Watch Anime Online</title>
+    <meta name="description"
+        content="Watch high-quality anime online. Track your progress, get AI recommendations, and join the community.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="index.html"><img src="logo.png" alt="animeZ" class="logo-img"></a></h1>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="community.html">Community</a>
+            <a href="news.html">News</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Featured/Hero Section -->
+        <section id="hero">
+            <div>
+                <h2 style="border:none; justify-content:center;">Featured Anime Coming Soon</h2>
+                <p>Top hits of the season are just a click away.</p>
+            </div>
+        </section>
+
+        <!-- Trending Section -->
+        <section id="trending">
+            <h2>Trending Now 🔥</h2>
+            <div class="anime-grid" id="anime-list">
+                <!-- Content populated by JS -->
+            </div>
+        </section>
+
+        <!-- New Releases Section -->
+        <section id="new-releases">
+            <h2>New Episodes 📺</h2>
+            <div class="anime-grid" id="new-list">
+                <!-- Content populated by JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

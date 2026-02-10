@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | animeZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --admin-bg: #0a0a0c;
+            --admin-sidebar: #121217;
+            --admin-accent: #ff0055;
+        }
+
+        body {
+            background-color: var(--admin-bg);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .admin-sidebar {
+            width: 260px;
+            background: var(--admin-sidebar);
+            padding: 2rem 1.5rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .admin-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 3rem;
+            padding-left: 0.5rem;
+        }
+
+        .admin-logo img {
+            height: 32px;
+        }
+
+        .admin-logo span {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--admin-accent);
+            letter-spacing: -1px;
+        }
+
+        .admin-nav {
+            list-style: none;
+            flex: 1;
+        }
+
+        .admin-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-nav a {
+            color: #888;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .admin-nav a:hover,
+        .admin-nav li.active a {
+            background: rgba(255, 0, 85, 0.1);
+            color: var(--admin-accent);
+        }
+
+        .admin-footer {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logout-btn {
+            color: #ff4d4d !important;
+        }
+
+        .admin-main {
+            flex: 1;
+            margin-left: 260px;
+            padding: 2.5rem;
+            max-width: 1200px;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .admin-header h2 {
+            border: none;
+            padding: 0;
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 40px;
+            background: var(--admin-accent);
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .content-box {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 1rem;
+            color: #555;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .data-table td {
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: rgba(0, 255, 135, 0.1);
+            color: #00ff87;
+        }
+
+        .badge-warning {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        .action-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .icon-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            color: #ccc;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover {
+            background: var(--admin-accent);
+            color: #fff;
+        }
+
+        @media (max-width: 900px) {
+            .admin-sidebar {
+                width: 70px;
+                padding: 2rem 0.5rem;
+                align-items: center;
+            }
+
+            .admin-logo span,
+            .admin-nav span,
+            .admin-footer span {
+                display: none;
+            }
+
+            .admin-main {
+                margin-left: 70px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <img src="logo.png" alt="logo">
+            <span>AdminPanel</span>
+        </div>
+
+        <ul class="admin-nav">
+            <li class="active"><a href="#"><span>📊</span> <span>Dashboard</span></a></li>
+            <li><a href="#"><span>🎬</span> <span>Anime List</span></a></li>
+            <li><a href="#"><span>👥</span> <span>Users</span></a></li>
+            <li><a href="#"><span>💬</span> <span>Comments</span></a></li>
+            <li><a href="#"><span>⚙️</span> <span>Settings</span></a></li>
+        </ul>
+
+        <div class="admin-footer">
+            <a href="index.html"><span>🏠</span> <span>Live Site</span></a>
+            <a href="#" id="logout-btn" class="logout-btn"><span>🚪</span> <span>Log Out</span></a>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <h2>Z-Engine Core</h2>
+            <button class="btn btn-primary" style="background: var(--admin-accent); border:none;">+ New Entry</button>
+        </header>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-label">Total Views</span>
+                <div class="stat-value">2.4M</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Subscribers</span>
+                <div class="stat-value">128k</div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Server Load</span>
+                <div class="stat-value">12%</div>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <h3 style="margin-bottom: 1.5rem;">Recent Activity</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Content</th>
+                        <th>Uploader</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-table-body">
+                    <tr>
+                        <td>
+                            <div style="font-weight: 600;">Solo Leveling S1E08</div>
+                            <div style="font-size: 0.8rem; color: #555;">ID: 98210</div>
+                        </td>
+                        <td>Admin_Z</td>
+                        <td><span class="badge badge-success">Active</span></td>
+                        <td>10 Feb, 2026</td>
+                        <td class="action-group">
+                            <button class="icon-btn">✎</button>
+                            <button class="icon-btn" onclick="deleteRow(this)">✕</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="font-weight: 600;">One Piece 1092</div>
+                            <div style="font-size: 0.8rem; color: #555;">ID: 98211</div>
+                        </td>
+                        <td>Mod_Luffy</td>
+                        <td><span class="badge badge-warning">Syncing</span></td>
+                        <td>10 Feb, 2026</td>
+                        <td class="action-group">
+                            <button class="icon-btn">✎</button>
+                            <button class="icon-btn" onclick="deleteRow(this)">✕</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        // Security Check
+        const user = localStorage.getItem('animeZ_user');
+        if (user !== 'Admin') {
+            window.location.href = 'index.html';
+        }
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('animeZ_user');
+            window.location.href = 'index.html';
+        });
+
+        // Delete Row Mock
+        function deleteRow(btn) {
+            if (confirm('Are you sure you want to delete this entry?')) {
+                const row = btn.closest('tr');
+                row.style.opacity = '0';
+                row.style.transform = 'translateX(20px)';
+                setTimeout(() => row.remove(), 300);
+            }
+        }
+    </script>
+</body>
+
+</html>
