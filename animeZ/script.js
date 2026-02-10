@@ -49,6 +49,9 @@ const animeData = [
     }
 ];
 
+// Expose to global scope for other scripts
+window.animeData = animeData;
+
 function createAnimeCard(anime) {
     const card = document.createElement('div');
     card.className = 'anime-card';
@@ -93,7 +96,6 @@ function init() {
     }
 }
 
-
 // Check for user login status
 function checkAuthStatus() {
     const loginBtn = document.querySelector('.login-btn');
@@ -108,9 +110,7 @@ function checkAuthStatus() {
     }
 }
 
-// Add to init
 document.addEventListener('DOMContentLoaded', () => {
     init();
     checkAuthStatus();
 });
-

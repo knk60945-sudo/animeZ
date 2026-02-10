@@ -97,7 +97,7 @@ h2 {
     align-items: center;
 }
 
-/* Hero Section (Future) */
+/* Hero Section */
 #hero {
     height: 300px;
     background: linear-gradient(45deg, #2a004d, #1a1a20);
@@ -201,87 +201,7 @@ h2 {
     }
 }
 
-/* Anime Details Page */
-.details-container {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 3rem;
-    margin-top: 2rem;
-}
-
-.details-sidebar {
-    text-align: center;
-}
-
-.details-sidebar img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    margin-bottom: 1.5rem;
-}
-
-.action-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.btn {
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    text-align: center;
-    transition: var(--transition);
-    display: block;
-    cursor: pointer;
-    border: none;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-}
-
-.btn-secondary {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.details-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.meta-tags {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    color: #bbb;
-    font-size: 0.9rem;
-}
-
-.rating {
-    color: #ffd700;
-    font-weight: bold;
-}
-
-.description {
-    margin-bottom: 2rem;
-    color: #ddd;
-    font-size: 1.05rem;
-    line-height: 1.8;
-}
-
-/* Authentication Pages */
+/* Authentication Pages (Start) */
 .auth-container {
     display: flex;
     justify-content: center;
@@ -433,6 +353,88 @@ h2 {
 
 .btn-social.apple:hover {
     background: #111;
+}
+
+/* Authentication Pages (End) */
+
+/* Anime Details Page */
+.details-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.details-sidebar {
+    text-align: center;
+}
+
+.details-sidebar img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: var(--transition);
+    display: block;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.details-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.meta-tags {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+.rating {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.description {
+    margin-bottom: 2rem;
+    color: #ddd;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
 /* Video Player */
